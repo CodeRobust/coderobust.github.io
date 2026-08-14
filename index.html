@@ -3,131 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeRobust | High-Performance Mobile Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>CodeRobust - Mobile Applications</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --bg-color: #F9FAFB;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
         }
 
-        .hero-bg {
-            background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Apps Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 60px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+            color: var(--primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 25px;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .app-link {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .app-link:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info a {
+            display: inline-flex;
+            align-items: center;
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: white;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+        }
+
+        .copyright {
+            color: #6B7280;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
+<body>
 
-    <nav class="fixed w-full z-50 glass py-4">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter">
-                <span class="text-blue-500">Code</span>Robust
-            </div>
-            <div class="space-x-8 hidden md:flex">
-                <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                <a href="#apps" class="hover:text-blue-400 transition">Our Apps</a>
-                <a href="#contact" class="px-5 py-2 bg-blue-600 rounded-full hover:bg-blue-500 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <header id="home" class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6">
-                    Engineering <br><span class="gradient-text">Robust</span> Experiences
-                </h1>
-                <p class="text-lg text-slate-400 mb-8 max-w-md">
-                    We specialize in developing high-performance, scalable Android applications that dominate the Play Store. Built for speed, designed for users.
-                </p>
-                <div class="flex gap-4">
-                    <a href="#apps" class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:scale-105 transition-transform">
-                        Explore Portfolio
-                    </a>
-                    <div class="flex items-center gap-2 px-4 py-2 border border-slate-700 rounded-lg">
-                        <i class="fab fa-google-play text-green-400 text-xl"></i>
-                        <span class="text-sm">Official Developer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hidden md:block relative">
-                <div class="absolute -inset-4 bg-blue-500/20 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1000" 
-                     alt="App Interface" class="relative rounded-3xl border border-slate-700 shadow-2xl">
-            </div>
-        </div>
+    <!-- Header Section -->
+    <header>
+        <h1>CodeRobust</h1>
+        <p>Innovative Mobile Solutions & Utility Applications</p>
+        <a href="https://play.google.com/store/apps/developer?id=Code+Robust" target="_blank" class="btn">
+            <i class="fab fa-google-play"></i> Official Developer
+        </a>
     </header>
 
-    <section id="apps" class="py-24 bg-slate-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="text-3xl font-bold mb-4">Featured Publications</h2>
-                <p class="text-slate-400">Available now on Google Play Store</p>
+    <!-- Applications Listing -->
+    <div class="container">
+        <h2 class="section-title">Our Featured Apps</h2>
+        
+        <div class="apps-grid">
+            
+            <!-- App 1: EasyCoupon -->
+            <div class="app-card">
+                <div class="app-icon">
+                    <i class="fas fa-barcode"></i>
+                </div>
+                <h3 class="app-title">EasyCoupon</h3>
+                <p class="app-desc">A smart barcode scanning utility designed to efficiently log and manage paint tokens. Organize data into structured lists, track categories, and calculate grand totals instantly.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.coderobust.app.easycoupon" target="_blank" class="app-link">View on Play Store</a>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg shadow-blue-900/40">
-                        <i class="fas fa-bolt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Turbo Optimizer</h3>
-                    <p class="text-slate-400 text-sm mb-6">A deep-cleaning utility app with over 1M+ downloads worldwide.</p>
-                    <button class="text-blue-400 font-semibold hover:underline">View on Play Store →</button>
+            <!-- App 2: PIXAGO -->
+            <div class="app-card">
+                <div class="app-icon">
+                    <i class="fas fa-images"></i>
                 </div>
-
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-purple-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg shadow-purple-900/40">
-                        <i class="fas fa-shield-halved text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">SecureVault</h3>
-                    <p class="text-slate-400 text-sm mb-6">Military-grade encryption for your personal files and media.</p>
-                    <button class="text-blue-400 font-semibold hover:underline">View on Play Store →</button>
-                </div>
-
-                <div class="glass p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300">
-                    <div class="w-16 h-16 bg-emerald-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg shadow-emerald-900/40">
-                        <i class="fas fa-chart-line text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">ZenFocus</h3>
-                    <p class="text-slate-400 text-sm mb-6">Minimalist productivity tracker for the modern professional.</p>
-                    <button class="text-blue-400 font-semibold hover:underline">View on Play Store →</button>
-                </div>
+                <h3 class="app-title">PIXAGO</h3>
+                <p class="app-desc">Your ultimate copyright-free image search engine. Access millions of high-resolution, royalty-free photos, and 4K wallpapers seamlessly aggregated from top platforms.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.coderobust.freeimages" target="_blank" class="app-link">View on Play Store</a>
             </div>
+
+            <!-- App 3: Bill Scanner -->
+            <div class="app-card">
+                <div class="app-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h3 class="app-title">Bill Scanner</h3>
+                <p class="app-desc">A robust regional utility tool tailored for evaluating electricity bills, calculating progressive tax structures, and tracking complex solar net metering metrics effortlessly.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.coderobust.billscanner" target="_blank" class="app-link">View on Play Store</a>
+            </div>
+            
         </div>
-    </section>
+    </div>
 
-    <section id="contact" class="py-24">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">Let's build something <span class="gradient-text">Robust</span>.</h2>
-            <p class="text-slate-400 mb-12">Whether you're looking for a partnership or support, our team is ready to help.</p>
-            <div class="inline-flex gap-8">
-                <a href="mailto:hello@coderobust.com" class="text-slate-200 hover:text-white flex items-center gap-2 transition">
-                    <i class="fas fa-envelope text-blue-500"></i> hello@coderobust.com
-                </a>
-                <a href="#" class="text-slate-200 hover:text-white flex items-center gap-2 transition">
-                    <i class="fab fa-linkedin text-blue-500"></i> LinkedIn
-                </a>
-            </div>
+    <!-- Footer Section -->
+    <footer>
+        <div class="contact-info">
+            <!-- LinkedIn link removed, contact strictly set to Gmail -->
+            <a href="mailto:coderobust@gmail.com">
+                <i class="fas fa-envelope"></i> coderobust@gmail.com
+            </a>
         </div>
-    </section>
-
-    <footer class="py-12 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm">&copy; 2024 CodeRobust. Built for the Android Ecosystem.</p>
+        <p class="copyright">&copy; 2026 CodeRobust. All rights reserved.</p>
     </footer>
 
 </body>
